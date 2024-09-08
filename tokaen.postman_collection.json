@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "5bbba14e-e6f5-480a-83d3-efbd8fd259cd",
+		"name": "tokaen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26157422"
+	},
+	"item": [
+		{
+			"name": "get google frome cookies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{google}}"
+			},
+			"response": []
+		},
+		{
+			"name": "token_get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(' get access token is returned',function()",
+							"{",
+							"    pm.collectionVariables.set('access_token',pm.response.json().data.access_token)  ",
+							"})",
+							"",
+							"pm.test('check the satatus code', function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('check the satatus code with expect', function () {",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{mail}}",
+							"description": "ggg",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{code}}",
+							"contentType": "",
+							"description": "fff",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://azim001.pythonanywhere.com/shopownerlogin"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email",
+			"value": "star.azim776@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "pass",
+			"value": "54321",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

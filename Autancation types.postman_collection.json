@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "4e06c007-74b0-48b6-b9af-2aa69166957a",
+		"name": "Autancation types",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26157422"
+	},
+	"item": [
+		{
+			"name": "api key",
+			"item": [
+				{
+					"name": "new api",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appid",
+								"value": "{{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.openweathermap.org/data/2.5/weather?q={{city}}&appid={{apikey}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{{city}}"
+								},
+								{
+									"key": "appid",
+									"value": "{{apikey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bearer Token",
+			"item": [
+				{
+					"name": "github",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "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"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://api.github.com/user/repos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basic Auth",
+			"item": [
+				{
+					"name": "New Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "password",
+								"username": "postman"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "postman",
+									"type": "text"
+								},
+								{
+									"key": "Password\n",
+									"value": "Password\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://postman-echo.com/basic-auth"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": {
+					"addTokenTo": "header"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "OAuth 2.0",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": {
+					"addTokenTo": "header"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
